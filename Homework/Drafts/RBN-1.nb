@@ -1,0 +1,378 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15582,        370]
+NotebookOptionsPosition[     13242,        331]
+NotebookOutlinePosition[     13608,        347]
+CellTagsIndexPosition[     13565,        344]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+comments on ComputationalEssayTemplate - HK working copy 3.nb\
+\>", "Section",
+ CellChangeTimes->{{3.7706823538338633`*^9, 
+  3.770682377319827*^9}},ExpressionUUID->"85d0a320-53b7-4ef6-a9ed-\
+3167f979200b"],
+
+Cell[CellGroupData[{
+
+Cell["\"Introduction\" should be in its own cell (Section)", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.770681423888528*^9}, {
+  3.7706817210563087`*^9, 
+  3.770681727808104*^9}},ExpressionUUID->"78be5f76-7683-402c-b2d0-\
+477096f5b7e7"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]and what how were they connected\
+\[CloseCurlyDoubleQuote] \[LongRightArrow] \[OpenCurlyDoubleQuote]and how \
+were they connected\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 
+  3.770681484204228*^9}},ExpressionUUID->"a9752be6-4e87-4df8-84ee-\
+682639b72f7b"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Sociology without theology powerless\
+\[CloseCurlyDoubleQuote] \[LongRightArrow] \[OpenCurlyDoubleQuote]Sociology \
+without theology is powerless\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 3.770681481425932*^9}, {3.77068161012602*^9, 
+  3.770681621709447*^9}, {3.770681703923189*^9, 
+  3.770681703923272*^9}},ExpressionUUID->"0e63d61e-c3db-4b86-ba87-\
+422204e57be2"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Grunt Work - Entering the Data\[CloseCurlyDoubleQuote] \
+should be in its own cell (Section)\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 3.770681481425932*^9}, {3.77068161012602*^9, 
+  3.770681621709447*^9}, {3.7706817049610558`*^9, 3.77068171714496*^9}, {
+  3.770681759984295*^9, 3.770681767096346*^9}, {3.770682499809264*^9, 
+  3.770682502471745*^9}, {3.7706828292933693`*^9, 
+  3.770682829293545*^9}},ExpressionUUID->"45b64fde-62d4-43fc-95e0-\
+811835574778"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]entering each letter\[CloseCurlyDoubleQuote] \
+\[LongRightArrow] \[OpenCurlyDoubleQuote]entering the data from each letter \
+\[OpenCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 3.770681481425932*^9}, {3.77068161012602*^9, 
+  3.770681621709447*^9}, {3.7706817049610558`*^9, 3.77068171714496*^9}, {
+  3.770681759984295*^9, 3.770681767096346*^9}, {3.770682499809264*^9, 
+  3.770682502471745*^9}, {3.770682830898045*^9, 
+  3.770682855208453*^9}},ExpressionUUID->"e6efbf19-1d98-402f-b9f2-\
+c20644f35ea7"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]The Fire Almost dies and is Rekindled\
+\[CloseCurlyDoubleQuote] shou be in its own cell (Section)\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 3.770681481425932*^9}, {3.77068161012602*^9, 
+  3.770681621709447*^9}, {3.7706817049610558`*^9, 3.77068171714496*^9}, {
+  3.770681759984295*^9, 3.7706817619203176`*^9}, {3.7706819355579367`*^9, 
+  3.770681961093257*^9}, {3.770682506782445*^9, 
+  3.770682507102322*^9}},ExpressionUUID->"fbb4322a-3b12-4623-8822-\
+e05fc84eb11c"],
+
+Cell["\<\
+I think an in-line cell with Dynamic content could create the blinking \
+underscore cursor character\
+\>", "Item",
+ CellChangeTimes->{{3.770681390687933*^9, 3.7706814172635508`*^9}, {
+  3.770681461050859*^9, 3.770681481425932*^9}, {3.77068161012602*^9, 
+  3.770681621709447*^9}, {3.7706817049610558`*^9, 3.77068171714496*^9}, {
+  3.770681759984295*^9, 3.7706817619203176`*^9}, {3.7706819355579367`*^9, 
+  3.770681960380547*^9}, {3.7706820218274193`*^9, 
+  3.7706820604003553`*^9}},ExpressionUUID->"a0b4d05f-f79c-44a8-9b53-\
+546efd69b3a7"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Initial Joy to back to nothing... No Thing.\
+\[CloseCurlyDoubleQuote] should be in a Section cell\
+\>", "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 
+  3.7706821691443987`*^9}},ExpressionUUID->"b3194cd8-1390-483e-a681-\
+6193d44fa2cb"],
+
+Cell[TextData[{
+ "evaluate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Iconize", "[", 
+    RowBox[{
+     RowBox[{"First", "@", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Users\\\\hekim\\\\Documents\\\\WSS-Template\\\\Homework\\\\\
+Underwood 1885-1915 2.xlsx\>\"", "]"}]}], ",", 
+     "\"\<Underwood 1885-1915.xlsx\>\""}], "]"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "bbebd530-1e85-46f9-8bde-1865e025f980"],
+ " in-place instead of using Import[...]"
+}], "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 
+  3.770682273136639*^9}},ExpressionUUID->"e049d59e-7f51-4cf7-a6a4-\
+c2f3c92528ed"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]and the journey continues\[CloseCurlyDoubleQuote] as a \
+heading? need some kind of segue here \
+\>", "Item",
+ CellChangeTimes->{{3.770683031398531*^9, 
+  3.7706830834900103`*^9}},ExpressionUUID->"f3fdb2bc-bb00-4a74-8e32-\
+bfd73da7f379"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Finally - a function to get rid of the headings!\
+\[CloseCurlyDoubleQuote] should be in its own cell (Text)\
+\>", "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770682536107232*^9, 
+  3.7706825361073723`*^9}, {3.770683099555077*^9, 
+  3.770683100523065*^9}},ExpressionUUID->"094e8c3a-77c5-438c-9215-\
+61b3acd08db2"],
+
+Cell[TextData[{
+ "the symbol ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["practicegraph", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "d31a5319-28be-4f22-9c54-e30bd6573e80"],
+ " should be camel-cased: ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["practiceGraph", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "49a2c6b6-659a-42ef-a118-f4c0e9c70f39"]
+}], "Item",
+ CellChangeTimes->{{3.77068314884333*^9, 3.770683176546525*^9}, {
+  3.7706832174531*^9, 
+  3.7706832279100113`*^9}},ExpressionUUID->"1f580ac3-da4b-4d39-b140-\
+505ab0764293"],
+
+Cell[TextData[{
+ "reuse the symbol ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["practiceGraph", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "3a182f84-79de-4c95-a9e8-9a5cbe9e6aa4"],
+ " in the ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["Graph", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "da49b864-dc3e-4ba2-ac47-bcf421423acd"],
+ " with closeness centrality, instead of regenerating the edge list"
+}], "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 
+  3.770683320096251*^9}},ExpressionUUID->"1bb1b5db-88f7-47b7-8bd5-\
+cedee10a0a34"],
+
+Cell[TextData[{
+ "use ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"ClosenessCentrality", "[", "practiceGraph", "]"}], "Input"], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "a4d9f53a-af54-4733-9354-961a82325d71"]
+}], "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683425903907*^9, 
+  3.7706834259040947`*^9}},ExpressionUUID->"2fef985d-21c8-47f9-b917-\
+4415b0d7c89f"],
+
+Cell[TextData[{
+ "use ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["practiceGraph", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "4ddbe638-ab7f-4d42-adfe-a9b5bc25b615"],
+ " instead of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["%4", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "24355631-1ef2-41b4-8bc5-77fcf3ce9027"]
+}], "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 
+  3.7706834734941807`*^9}},ExpressionUUID->"6b0bc67b-36a1-4844-bb59-\
+9b9ff0f40bab"],
+
+Cell[TextData[{
+ "are ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["All", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "10db2b2f-233f-4264-abed-9480b380325f"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["Greater", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "319318cf-300f-46eb-a242-6b76d8cf798c"],
+ " needed in ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["Ordering", "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "732f1ffa-8994-4533-847d-13beee0b006f"],
+ "?"
+}], "Subitem",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683693310988*^9, 
+  3.770683693311198*^9}},ExpressionUUID->"49d2164d-eb69-4267-9dad-\
+aac32c4dd316"],
+
+Cell["\<\
+I can see how you want to show the steps taken to finally arrive at the \
+nicely formatted table, so maybe you could include some \
+\[OpenCurlyDoubleQuote]exposition\[CloseCurlyDoubleQuote] such as \
+\[OpenCurlyDoubleQuote]Step by step ...\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683696154872*^9, 3.770683739568139*^9}, {
+  3.770683798549467*^9, 3.770683828915607*^9}, {3.770684037510105*^9, 
+  3.770684048854924*^9}, {3.770684488646316*^9, 
+  3.770684488646463*^9}},ExpressionUUID->"13041638-3f12-42fd-a921-\
+8fdd5df320d1"],
+
+Cell["perhaps it could be followed up with a concise construction", "Subitem",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683696154872*^9, 3.770683739568139*^9}, {
+  3.770683798549467*^9, 3.770683828915607*^9}, {3.770684037510105*^9, 
+  3.770684048854924*^9}, {3.77068449073348*^9, 
+  3.770684516812711*^9}},ExpressionUUID->"8e4298e2-cc4f-4dfe-a25f-\
+728f731eeb2f"],
+
+Cell["\<\
+the Conclusion(s) and Confession is a good back story, but without any \
+computation is seems to be more of the latter, and somewhat out of place\
+\>", "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683696154872*^9, 3.770683739568139*^9}, {
+  3.770683798549467*^9, 3.770683828915607*^9}, {3.770684037510105*^9, 
+  3.7706840794792013`*^9}, {3.770684194915633*^9, 3.770684200817667*^9}, {
+  3.770684299211863*^9, 
+  3.7706843241548843`*^9}},ExpressionUUID->"a677344c-3dff-4461-aeb3-\
+fc64957d42ac"],
+
+Cell["\<\
+I see some opportunities for showing how to do systematic data cleaning with \
+the data in your example\
+\>", "Subitem",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683696154872*^9, 3.770683739568139*^9}, {
+  3.770683798549467*^9, 3.770683828915607*^9}, {3.770684037510105*^9, 
+  3.7706840794792013`*^9}, {3.770684194915633*^9, 3.770684200817667*^9}, {
+  3.770684299211863*^9, 3.770684327064888*^9}, {3.770684617600247*^9, 
+  3.770684668333536*^9}},ExpressionUUID->"1f8afcff-7c50-4af7-9946-\
+222e3feccbd2"],
+
+Cell["", "Item",
+ CellChangeTimes->{{3.770682145811418*^9, 3.770682271216544*^9}, {
+  3.770682457456636*^9, 3.770682492510298*^9}, {3.770683131794428*^9, 
+  3.770683141691922*^9}, {3.770683242556663*^9, 3.77068334218467*^9}, {
+  3.770683427080215*^9, 3.7706834467659473`*^9}, {3.770683486364635*^9, 
+  3.77068351412398*^9}, {3.770683696154872*^9, 3.770683739568139*^9}, {
+  3.770683798549467*^9, 3.770683828915607*^9}, {3.770684037510105*^9, 
+  3.7706840794792013`*^9}, {3.770684194915633*^9, 3.770684200817667*^9}, {
+  3.770684299211863*^9, 3.770684327064888*^9}, {3.770684617600247*^9, 
+  3.7706846588401318`*^9}},ExpressionUUID->"eed6d8c1-179f-482c-ad38-\
+1c6bfd425e9f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{666, 663},
+WindowMargins->{{Automatic, 9}, {22, Automatic}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 216, 5, 215, "Section",ExpressionUUID->"85d0a320-53b7-4ef6-a9ed-3167f979200b"],
+Cell[CellGroupData[{
+Cell[821, 31, 245, 4, 49, "Item",ExpressionUUID->"78be5f76-7683-402c-b2d0-477096f5b7e7"],
+Cell[1069, 37, 377, 8, 80, "Item",ExpressionUUID->"a9752be6-4e87-4df8-84ee-682639b72f7b"],
+Cell[1449, 47, 487, 9, 80, "Item",ExpressionUUID->"0e63d61e-c3db-4b86-ba87-422204e57be2"],
+Cell[1939, 58, 557, 10, 80, "Item",ExpressionUUID->"45b64fde-62d4-43fc-95e0-811835574778"],
+Cell[2499, 70, 611, 11, 80, "Item",ExpressionUUID->"e6efbf19-1d98-402f-b9f2-c20644f35ea7"],
+Cell[3113, 83, 564, 10, 80, "Item",ExpressionUUID->"fbb4322a-3b12-4623-8822-e05fc84eb11c"],
+Cell[3680, 95, 548, 10, 80, "Item",ExpressionUUID->"a0b4d05f-f79c-44a8-9b53-546efd69b3a7"],
+Cell[4231, 107, 272, 6, 80, "Item",ExpressionUUID->"b3194cd8-1390-483e-a681-6193d44fa2cb"],
+Cell[4506, 115, 629, 18, 293, "Item",ExpressionUUID->"e049d59e-7f51-4cf7-a6a4-c2f3c92528ed"],
+Cell[5138, 135, 270, 6, 80, "Item",ExpressionUUID->"f3fdb2bc-bb00-4a74-8e32-bfd73da7f379"],
+Cell[5411, 143, 426, 8, 80, "Item",ExpressionUUID->"094e8c3a-77c5-438c-9215-61b3acd08db2"],
+Cell[5840, 153, 597, 17, 74, "Item",ExpressionUUID->"1f580ac3-da4b-4d39-b140-505ab0764293"],
+Cell[6440, 172, 745, 19, 111, "Item",ExpressionUUID->"1bb1b5db-88f7-47b7-8bd5-cedee10a0a34"],
+Cell[7188, 193, 583, 15, 49, "Item",ExpressionUUID->"2fef985d-21c8-47f9-b917-4415b0d7c89f"],
+Cell[7774, 210, 713, 19, 49, "Item",ExpressionUUID->"6b0bc67b-36a1-4844-bb59-9b9ff0f40bab"],
+Cell[8490, 231, 991, 27, 40, "Subitem",ExpressionUUID->"49d2164d-eb69-4267-9dad-aac32c4dd316"],
+Cell[9484, 260, 845, 14, 143, "Item",ExpressionUUID->"13041638-3f12-42fd-a921-8fdd5df320d1"],
+Cell[10332, 276, 635, 9, 68, "Subitem",ExpressionUUID->"8e4298e2-cc4f-4dfe-a25f-728f731eeb2f"],
+Cell[10970, 287, 780, 13, 111, "Item",ExpressionUUID->"a677344c-3dff-4461-aeb3-fc64957d42ac"],
+Cell[11753, 302, 785, 13, 96, "Subitem",ExpressionUUID->"1f8afcff-7c50-4af7-9946-222e3feccbd2"],
+Cell[12541, 317, 673, 10, 49, "Item",ExpressionUUID->"eed6d8c1-179f-482c-ad38-1c6bfd425e9f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
