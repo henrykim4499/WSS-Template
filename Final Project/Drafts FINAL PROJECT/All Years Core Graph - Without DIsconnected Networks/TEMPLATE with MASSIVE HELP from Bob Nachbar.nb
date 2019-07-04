@@ -1,0 +1,1093 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42360,       1085]
+NotebookOptionsPosition[     40387,       1047]
+NotebookOutlinePosition[     40763,       1063]
+CellTagsIndexPosition[     40720,       1060]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["TEMPLATE with MASSIVE HELP from Bob Nachbar",
+ FontWeight->"Bold"]], "Chapter",
+ CellChangeTimes->{{3.7711443065942774`*^9, 3.7711443129687304`*^9}, {
+  3.77114497727819*^9, 3.771145028955417*^9}, {3.771152444566606*^9, 
+  3.7711524553425074`*^9}, {3.7711529591707983`*^9, 3.7711529594451933`*^9}, {
+  3.771153003040658*^9, 3.7711530370008235`*^9}, {3.771153094721018*^9, 
+  3.771153112905134*^9}, {3.7711535975053797`*^9, 3.771153617285223*^9}, {
+  3.7711548525690346`*^9, 3.7711548668448224`*^9}, {3.7711884791904125`*^9, 
+  3.771188505751881*^9}},ExpressionUUID->"865f4563-f164-43e2-810e-\
+8363aaf208d5"],
+
+Cell[TextData[{
+ "Thread -> a list of pairs, FROM a pair of lists \nUpTo accounts  for \
+\[OpenCurlyDoubleQuote]taking\[CloseCurlyDoubleQuote] \
+\[OpenCurlyDoubleQuote]more\[CloseCurlyDoubleQuote] than the length of the \
+list\n\n",
+ StyleBox["MUST EVALUATE CELLS BELOW FOR TEMPLATE TO WORK",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.7711695592272005`*^9, 3.7711695725528297`*^9}, {
+  3.7711696779593067`*^9, 3.771169739141667*^9}, {3.771188440875321*^9, 
+  3.7711884568390236`*^9}},ExpressionUUID->"39630ede-ee60-4fb9-ab0c-\
+a1e15232656f"],
+
+Cell["\<\
+The next two lines are doing the SAME THING in different syntax\
+\>", "Text",
+ CellChangeTimes->{{3.7711900380818233`*^9, 
+  3.771190049806014*^9}},ExpressionUUID->"73f10b49-31b3-4869-a96d-\
+234875372877"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{
+      RowBox[{"Take", "[", 
+       RowBox[{
+        RowBox[{"ReverseSortBy", "[", 
+         RowBox[{
+          RowBox[{"Thread", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"VertexList", "[", "#", "]"}], ",", 
+             RowBox[{"BetweennessCentrality", "[", "#", "]"}]}], "}"}], "]"}],
+           ",", "Last"}], "]"}], ",", 
+        RowBox[{"UpTo", "[", "15", "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", "0."}], "}"}]}], "]"}], "&"}], "/@", 
+   "accumulatingGraphs"}], ";"}]], "Input",
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"05c5a61a-2f5f-4553-8c70-4ea20fe2948f"],
+
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "gleanWellConnectedPersons", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "gleanWellConnectedPersons", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<count\>\"", "\[Rule]", "15"}], ",", 
+     RowBox[{"\"\<measure\>\"", "\[Rule]", "BetweennessCentrality"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gleanWellConnectedPersons", "[", 
+   RowBox[{"graph_", ",", 
+    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "measure", ",", "count", ",", "namesAndCentralities", ",", "sortedList", 
+      ",", "topPersons"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"measure", "=", 
+      RowBox[{"OptionValue", "[", "\"\<measure\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"count", "=", 
+      RowBox[{"OptionValue", "[", "\"\<count\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"namesAndCentralities", "=", 
+      RowBox[{"Thread", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"VertexList", "[", "graph", "]"}], ",", 
+         RowBox[{"measure", "[", "graph", "]"}]}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"sortedList", "=", 
+      RowBox[{"ReverseSortBy", "[", 
+       RowBox[{"namesAndCentralities", ",", "Last"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"topPersons", "=", 
+      RowBox[{"Take", "[", 
+       RowBox[{"sortedList", ",", 
+        RowBox[{"UpTo", "[", "count", "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DeleteCases", "[", 
+      RowBox[{"topPersons", ",", 
+       RowBox[{"{", 
+        RowBox[{"_", ",", "0."}], "}"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7711699200421925`*^9, 3.771169969503728*^9}, {
+  3.7711700019721837`*^9, 3.7711700389802485`*^9}, {3.7711700749757195`*^9, 
+  3.7711701702768164`*^9}, {3.771170210708706*^9, 3.771170234154161*^9}, {
+  3.7711703714837074`*^9, 3.7711704366777687`*^9}, {3.771170473459031*^9, 
+  3.771170638228746*^9}, {3.7711706683907967`*^9, 3.771170676950761*^9}},
+ CellLabel->
+  "In[180]:=",ExpressionUUID->"41672389-6c4c-4b7e-8699-8bc111b7fccd"],
+
+Cell[TextData[{
+ StyleBox["The orange colored ",
+  FontColor->RGBColor[1, 0.5, 0]],
+ StyleBox["font \n\t1) The Variable depicting the SNA metric, and\n\t2) The \
+SNA metric \n\t\tare what need to change to ascertain different graph \
+variables:\n\t\t\n(The function below was suppressed because creating all of \
+the graphs took too much time/space)\nTwo Examples",
+  FontColor->GrayLevel[0]]
+}], "Text",
+ CellChangeTimes->{{3.771173773958002*^9, 3.7711737928931866`*^9}, {
+  3.771188303517908*^9, 3.771188333663393*^9}, {3.771190364842856*^9, 
+  3.77119036599236*^9}, {3.771190405171206*^9, 3.771190460575985*^9}, {
+  3.771190570474668*^9, 
+  3.7711905751152487`*^9}},ExpressionUUID->"1c7a556a-7f5f-44e7-85e7-\
+b665abbe82b1"],
+
+Cell["ClosenessCentrality", "Text",
+ CellChangeTimes->{{3.7711906370818415`*^9, 
+  3.7711906507470803`*^9}},ExpressionUUID->"bd1058b8-46fe-46ac-bed5-\
+7758f85411d3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox["topConnectedPersonsByCloseness",
+    FontColor->RGBColor[1, 0.5, 0]], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"gleanWellConnectedPersons", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"\"\<measure\>\"", "\[Rule]", 
+        StyleBox["ClosenessCentrality",
+         FontWeight->"Plain",
+         FontColor->RGBColor[1, 0.5, 0]]}]}], "]"}], "&"}], "/@", 
+    "accumulatingGraphs"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.771171111441573*^9, 3.771171143484415*^9}, 
+   3.7711740636287766`*^9, 3.771188201975244*^9, 3.771188295813899*^9},
+ CellLabel->
+  "In[183]:=",ExpressionUUID->"86706559-5cf1-415f-9a47-2d059f0a9332"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Length", "/@", 
+    StyleBox["topConnectedPersonsByCloseness",
+     FontColor->RGBColor[1, 0.5, 0]]}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<year\>\"", ",", "\"\<count\>\""}], "}"}]}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", 
+    StyleBox["ClosenessCentrality",
+     FontColor->RGBColor[1, 0.5, 0]]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.771171169740341*^9, 3.7711711825860853`*^9}},
+ CellLabel->
+  "In[184]:=",ExpressionUUID->"eb192ce8-ddb3-4ff5-ab44-51c9ba1c49b1"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.011000000000000001`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxdxyEPAXEYx/H/TLggXLggCMcE4WaCmWBzQRAEM0EQbsYm2AiCIAheB29B
+EARBEARBEARBEAThgiAIuMd/tu+zPfv+PvFWv9YJKaVyn/82uMXMleEXgyzh
+lbaSruENvNU2pDttU7qHD/ARPsFn+AJf4Rt8h334AT+1LekLVvNfbWlYOyE1
+tB1pBDa101ILjsIx2IaTcAp24AychfNwAXbhElyGK3AVrsMNuAl7cBvuwj14
+AA/hETyGJ/D07zfKzGCi
+      "]]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{1962.8958333333335`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"count\"", TraditionalForm], None}, {
+     FormBox["\"year\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["ClosenessCentrality", TraditionalForm],
+  PlotRange->{{1962.8958333333335`, 2017.}, {0, 15.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7711711850081215`*^9, 3.7711737257322183`*^9, 3.771188417870467*^9, {
+   3.771188558128106*^9, 3.771188565475211*^9}, 3.7711886992804856`*^9, 
+   3.7711893596068487`*^9, 3.7711896982058096`*^9, 3.7711900002805104`*^9, 
+   3.7711910466006064`*^9, {3.7711925602714305`*^9, 3.7711925677599964`*^9}, 
+   3.771229544167097*^9},
+ CellLabel->
+  "Out[184]=",ExpressionUUID->"0ee5a884-f8e3-4280-8754-02bd43135fa6"]
+}, Open  ]],
+
+Cell["BetweennessCentrality", "Text",
+ CellChangeTimes->{{3.7711906603848715`*^9, 
+  3.771190667146308*^9}},ExpressionUUID->"86fe368d-f81e-4c19-8cb9-\
+b60799f9d8ca"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox["topConnectedPersonsBetweenness",
+    FontColor->RGBColor[1, 0.5, 0]], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"gleanWellConnectedPersons", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"\"\<measure\>\"", "\[Rule]", "BetweennessCentrality"}]}], 
+      "]"}], "&"}], "/@", "accumulatingGraphs"}]}], ";"}]], "Input",
+ CellLabel->
+  "In[185]:=",ExpressionUUID->"2b55bf81-133f-4124-a75c-6c00d26c7366"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Length", "/@", 
+    StyleBox["topConnectedPersonsBetweenness",
+     FontColor->RGBColor[1, 0.5, 0]]}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<year\>\"", ",", "\"\<count\>\""}], "}"}]}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "BetweennessCentrality"}]}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[186]:=",ExpressionUUID->"d53b0a5a-dda2-49fd-8956-cabfad5b1f6b"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.011000000000000001`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxd0C8PQXEUh/HfTBCEG24QbsBuEATBTLC5QRAEM0EQzNgEG0EQBMHr4C0I
+giAIgiAIgiAIgiDcIAiCP2dn7PluZ88+9cSavUo7YIzJvO/T7+ZTz/xvAS/V
+fv6bFbyGN/AW3sF7+AAf4RN8hi/wFb7BPnyHH/jHEzYztTQIh9QhaRi21JbU
+VtvSCOyoI9Io7MIJOAmn4DSchXNqR+rBBbgIl+CyOi6twjW4DjfgFtyBu3Af
+Hqhd6RAeqRPSMTz5+QUP02lM
+      "]]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{1962.8958333333335`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"count\"", TraditionalForm], None}, {
+     FormBox["\"year\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["BetweennessCentrality", TraditionalForm],
+  PlotRange->{{1962.8958333333335`, 2017.}, {0, 12.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7711907141281347`*^9, 3.7711910468854666`*^9, {3.771192560615102*^9, 
+   3.771192568103698*^9}, 3.77122954455007*^9},
+ CellLabel->
+  "Out[186]=",ExpressionUUID->"b35d10f3-e5b1-4e66-998a-fabb2fe35dd6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["topConnectedPersonsBetweenness",
+   FontColor->RGBColor[1, 0.5, 0]], "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"gleanWellConnectedPersons", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"\"\<measure\>\"", "\[Rule]", "BetweennessCentrality"}]}], 
+     "]"}], "&"}], "/@", "accumulatingGraphs"}]}]], "Input",
+ CellChangeTimes->{3.771229584866201*^9},
+ CellLabel->
+  "In[188]:=",ExpressionUUID->"1b5b08be-2393-41bc-8f19-6e79eaf36c62"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"1964", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"1965", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"1966", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "18.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1967", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "18.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1968", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "18.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1969", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "18.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1970", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1971", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1972", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1973", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1974", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1975", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1976", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1977", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1978", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1979", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1980", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1981", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], "}"}]}], ",", 
+   RowBox[{"1982", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"1983", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"1984", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "30.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1985", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "30.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1986", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1987", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1988", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1989", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1990", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"1991", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1992", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1993", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1994", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1995", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1996", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1997", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1998", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"1999", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "12.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"2000", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "12.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"2001", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "12.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"2002", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "12.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"2003", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "12.`"}], "}"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"2004", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "215.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2005", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "215.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2006", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "215.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2007", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "215.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2008", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "215.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2009", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2010", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "97.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2011", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "196.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "96.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "62.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2012", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "196.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2013", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "370.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Nancy DiTomaso\"\>", ",", "122.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2014", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "512.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Nancy DiTomaso\"\>", ",", "164.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2015", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "511.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Nancy DiTomaso\"\>", ",", "164.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Carla Shedd\"\>", ",", "123.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"John Hagan\"\>", ",", "78.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2016", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "511.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Nancy DiTomaso\"\>", ",", "164.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Carla Shedd\"\>", ",", "123.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"John Hagan\"\>", ",", "78.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"2017", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"Michele Lamont\"\>", ",", "511.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Mitchell Duneier\"\>", ",", "214.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Nancy DiTomaso\"\>", ",", "164.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Charles Tilly\"\>", ",", "128.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Theda Skocpol\"\>", ",", "127.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Carla Shedd\"\>", ",", "123.5`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"John Hagan\"\>", ",", "78.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Walter Korpi\"\>", ",", "38.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Gerald D. Suttles\"\>", ",", "36.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"David Matza\"\>", ",", "35.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Manuel Castells\"\>", ",", "24.`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"Sharon Zukin\"\>", ",", "16.`"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.7712295871271205`*^9},
+ CellLabel->
+  "Out[188]=",ExpressionUUID->"88d187c8-4bd7-48b2-8358-ed927277772d"]
+}, Open  ]],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.7711909771273246`*^9, 3.771190998685338*^9}, 
+   3.7711911089668617`*^9},ExpressionUUID->"e8f0bc85-c2ee-4559-9c49-\
+9b1c22c00734"]
+}, Open  ]]
+},
+WindowSize->{1520, 781},
+WindowMargins->{{16, Automatic}, {Automatic, 28}},
+Magnification:>1.7 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (December 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 631, 9, 116, "Chapter",ExpressionUUID->"865f4563-f164-43e2-810e-8363aaf208d5"],
+Cell[1214, 33, 555, 11, 174, "Text",ExpressionUUID->"39630ede-ee60-4fb9-ab0c-a1e15232656f"],
+Cell[1772, 46, 215, 5, 59, "Text",ExpressionUUID->"73f10b49-31b3-4869-a96d-234875372877"],
+Cell[1990, 53, 717, 21, 83, "Input",ExpressionUUID->"05c5a61a-2f5f-4553-8c70-4ea20fe2948f"],
+Cell[2710, 76, 2305, 56, 380, "Input",ExpressionUUID->"41672389-6c4c-4b7e-8699-8bc111b7fccd"],
+Cell[5018, 134, 726, 14, 288, "Text",ExpressionUUID->"1c7a556a-7f5f-44e7-85e7-b665abbe82b1"],
+Cell[5747, 150, 165, 3, 59, "Text",ExpressionUUID->"bd1058b8-46fe-46ac-bed5-7758f85411d3"],
+Cell[5915, 155, 672, 17, 83, "Input",ExpressionUUID->"86706559-5cf1-415f-9a47-2d059f0a9332"],
+Cell[CellGroupData[{
+Cell[6612, 176, 671, 16, 83, "Input",ExpressionUUID->"eb192ce8-ddb3-4ff5-ab44-51c9ba1c49b1"],
+Cell[7286, 194, 2241, 54, 472, "Output",ExpressionUUID->"0ee5a884-f8e3-4280-8754-02bd43135fa6"]
+}, Open  ]],
+Cell[9542, 251, 165, 3, 59, "Text",ExpressionUUID->"86fe368d-f81e-4c19-8cb9-b60799f9d8ca"],
+Cell[9710, 256, 448, 12, 83, "Input",ExpressionUUID->"2b55bf81-133f-4124-a75c-6c00d26c7366"],
+Cell[CellGroupData[{
+Cell[10183, 272, 556, 14, 83, "Input",ExpressionUUID->"d53b0a5a-dda2-49fd-8956-cabfad5b1f6b"],
+Cell[10742, 288, 2042, 51, 472, "Output",ExpressionUUID->"b35d10f3-e5b1-4e66-998a-fabb2fe35dd6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12821, 344, 464, 12, 83, "Input",ExpressionUUID->"1b5b08be-2393-41bc-8f19-6e79eaf36c62"],
+Cell[13288, 358, 26899, 680, 2387, "Output",ExpressionUUID->"88d187c8-4bd7-48b2-8358-ed927277772d"]
+}, Open  ]],
+Cell[40202, 1041, 169, 3, 59, "Text",ExpressionUUID->"e8f0bc85-c2ee-4559-9c49-9b1c22c00734"]
+}, Open  ]]
+}
+]
+*)
+
