@@ -1,0 +1,150 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4962,        142]
+NotebookOptionsPosition[      4231,        122]
+NotebookOutlinePosition[      4605,        138]
+CellTagsIndexPosition[      4562,        135]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Master Template for SNA Metrics\n",
+ StyleBox["The colored font is what needs to change to ascertain different \
+graph variables:\n\n",
+  FontColor->RGBColor[1, 0.5, 0]],
+ StyleBox["Example below is for ClosenessCentrality with suppressed output",
+  FontColor->GrayLevel[0]]
+}], "Text",
+ CellChangeTimes->{{3.7711739337988653`*^9, 
+  3.771174031643159*^9}},ExpressionUUID->"88803fd7-944d-4ebb-b0d9-\
+c30f4456996a"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7711739429124775`*^9, 
+  3.771173944039277*^9}},ExpressionUUID->"cb801974-6886-42ec-ace1-\
+0e89208fe028"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox["topConnectedPersonsByCloseness",
+    FontColor->RGBColor[1, 0.5, 0]], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"gleanWellConnectedPersons", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"\"\<measure\>\"", "\[Rule]", 
+        StyleBox["ClosenessCentrality",
+         FontWeight->"Plain",
+         FontColor->RGBColor[1, 0.5, 0]]}]}], "]"}], "&"}], "/@", 
+    "accumulatingGraphs"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.771174016268042*^9},
+ CellLabel->
+  "In[114]:=",ExpressionUUID->"1b57b78d-da35-4b8f-a00a-6a4c8dedf9be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Length", "/@", "topConnectedPersonsByCloseness"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<year\>\"", ",", "\"\<count\>\""}], "}"}]}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "ClosenessCentrality"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[115]:=",ExpressionUUID->"b4ee82d1-e045-43cb-9a15-37e4e258d015"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.011000000000000001`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxdxyEPAXEYx/H/TLggXLggCMcE4WaCmWBzQRAEM0EQbsYm2AiCIAheB29B
+EARBEARBEARBEAThgiAIuMd/tu+zPfv+PvFWv9YJKaVyn/82uMXMleEXgyzh
+lbaSruENvNU2pDttU7qHD/ARPsFn+AJf4Rt8h334AT+1LekLVvNfbWlYOyE1
+tB1pBDa101ILjsIx2IaTcAp24AychfNwAXbhElyGK3AVrsMNuAl7cBvuwj14
+AA/hETyGJ/D07zfKzGCi
+      "]]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.011000000000000001`], AbsoluteThickness[1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{1962.8958333333335`, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"count\"", TraditionalForm], None}, {
+     FormBox["\"year\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["ClosenessCentrality", TraditionalForm],
+  PlotRange->{{1962.8958333333335`, 2017.}, {0, 15.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7711740812830086`*^9, 3.7711742860580964`*^9},
+ CellLabel->
+  "Out[115]=",ExpressionUUID->"f5998e1c-97b7-443a-8c02-fec6262386aa"]
+}, Open  ]]
+},
+WindowSize->{1520, 781},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (December 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 432, 10, 131, "Text",ExpressionUUID->"88803fd7-944d-4ebb-b0d9-c30f4456996a"],
+Cell[993, 32, 154, 3, 37, "Input",ExpressionUUID->"cb801974-6886-42ec-ace1-0e89208fe028"],
+Cell[1150, 37, 576, 16, 37, "Input",ExpressionUUID->"1b57b78d-da35-4b8f-a00a-6a4c8dedf9be"],
+Cell[CellGroupData[{
+Cell[1751, 57, 499, 11, 37, "Input",ExpressionUUID->"b4ee82d1-e045-43cb-9a15-37e4e258d015"],
+Cell[2253, 70, 1962, 49, 381, "Output",ExpressionUUID->"f5998e1c-97b7-443a-8c02-fec6262386aa"]
+}, Open  ]]
+}
+]
+*)
+
